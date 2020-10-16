@@ -3,7 +3,6 @@ package dictionary.graphic.sentence_translator;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import dictionary.graphic.database.WordLookUp;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

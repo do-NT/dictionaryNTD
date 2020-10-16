@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dictionary.graphic.application.MyController">
+  <tabs>
+    <Tab text="  Dictionary  ">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="dictSearchField" layoutX="14.0" layoutY="40.0" onAction="#getSuggestionWord" prefHeight="53.0" prefWidth="214.0" promptText="Type your word" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="dictDefinitionField" layoutX="308.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" promptText="Definition goes here..." AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
+                  <ListView fx:id="listView" layoutX="14.0" layoutY="113.0" onMouseClicked="#dictGetWordDefinitionMouseClickedEvent" prefHeight="437.0" prefWidth="274.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="105.0" />
+                  <Label alignment="CENTER_RIGHT" layoutX="549.0" layoutY="14.0" prefHeight="27.0" prefWidth="222.0" text="created by nguyenthanhdo" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="7.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="dictSearchButton" defaultButton="true" layoutX="236.0" layoutY="42.0" mnemonicParsing="false" onAction="#dictGetWordDefinition" prefHeight="28.0" prefWidth="52.0" text="Search" AnchorPane.topAnchor="40.0" />
+                  <Button fx:id="dictSpeakButton" layoutX="236.0" layoutY="68.0" mnemonicParsing="false" onAction="#dictGetSpeech" prefHeight="24.0" prefWidth="52.0" text="Speak" AnchorPane.topAnchor="68.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="    My Lists   ">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addNewList" layoutX="157.0" layoutY="529.0" mnemonicParsing="false" onAction="#openAddNewListWindow" prefHeight="26.0" prefWidth="81.0" text="Add new list" AnchorPane.bottomAnchor="14.0" />
+                  <Button layoutX="79.0" layoutY="530.0" mnemonicParsing="false" onAction="#openDeleteListWindow" text="Delete list" AnchorPane.bottomAnchor="14.000000000000021" />
+                  <Button fx:id="refreshButton" layoutX="15.0" layoutY="530.0" mnemonicParsing="false" onAction="#getMyList" prefHeight="26.0" prefWidth="52.0" text="Refesh" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" />
+                  <ListView fx:id="myListView" layoutX="15.0" layoutY="76.0" onMouseClicked="#showAlist" prefHeight="452.0" prefWidth="224.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="70.0" />
+                  <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="27.0" prefHeight="29.0" prefWidth="94.0" text="My Lists" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="27.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="542.0" layoutY="14.0" prefHeight="27.0" prefWidth="222.0" text="created by nguyenthanhdo" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="7.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="myTableView" layoutX="254.0" layoutY="76.0" prefHeight="452.0" prefWidth="525.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
+                    <columns>
+                      <TableColumn fx:id="wordColumn" editable="false" prefWidth="87.20001220703125" resizable="false" text="Word" />
+                      <TableColumn fx:id="typeColumn" editable="false" prefWidth="50.4000244140625" resizable="false" text="Type" />
+                        <TableColumn fx:id="defColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="500.0" text="Definition" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="255.0" layoutY="28.0" prefHeight="27.0" prefWidth="35.0" text="List:" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="28.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="myListName" editable="false" layoutX="290.0" layoutY="22.0" prefHeight="26.0" prefWidth="171.0" AnchorPane.topAnchor="22.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <Button layoutX="527.0" layoutY="530.0" mnemonicParsing="false" onAction="#openDeleteWordWindow" text="Delete word" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="192.0" />
+                  <Button fx:id="myAddWord" layoutX="618.0" layoutY="530.0" mnemonicParsing="false" onAction="#openAddWordWindow" text="Add word" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="114.0" />
+                  <Button fx:id="myUpdateWord" layoutX="694.0" layoutY="530.0" mnemonicParsing="false" onAction="#openUpdateWordWindow" text="Update word" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
+                  <Button fx:id="mySearchButton" layoutX="461.0" layoutY="530.0" mnemonicParsing="false" onAction="#openMySearchWindow" text="Search..." AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="282.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab closable="false" text="Sentence Translator">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <SplitPane dividerPositions="0.43772383605252685, 0.5013927576601671, 0.9430959013131714" layoutX="22.0" layoutY="34.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="756.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                     <items>
+                        <TextArea fx:id="englishText" prefHeight="251.0" prefWidth="590.0" promptText="English goes here">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="eTrans" mnemonicParsing="false" onAction="#translateEnglishText" prefHeight="22.0" prefWidth="71.0" text="Translate" />
+                              <Button fx:id="eSpeak" mnemonicParsing="false" onAction="#translateGetEnglishSpeech" text="Speak" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                        <TextArea fx:id="vietnameseText" prefHeight="200.0" prefWidth="200.0" promptText="Vietnamese goes here">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="vTrans" mnemonicParsing="false" onAction="#translateVietnameseText" prefHeight="11.0" prefWidth="71.0" text="Translate" />
+                              <Button fx:id="vSpeak" mnemonicParsing="false" onAction="#translateGetVietnameseSpeech" text="Speak" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </items>
+                  </SplitPane>
+                  <Label alignment="CENTER_RIGHT" layoutX="556.0" layoutY="14.0" prefHeight="27.0" prefWidth="222.0" text="created by nguyenthanhdo" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="7.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

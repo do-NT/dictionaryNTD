@@ -11,11 +11,9 @@ import org.json.JSONArray;
 
 public class GoogleAPI {
 
-    public String textMeaning(String text) throws Exception {
-//        Scanner sc = new Scanner(System.in);
-//        String input = sc.nextLine();
+    public String textMeaning(String text, String langFrom, String langTo) throws Exception {
         GoogleAPI http = new GoogleAPI();
-        String word = http.callUrlAndParseResult("en", "vi", text);
+        String word = http.callUrlAndParseResult(langFrom, langTo, text);
 
         return word;
     }
@@ -50,12 +48,6 @@ public class GoogleAPI {
 
     private String parseResult(String inputJson) throws Exception
     {
-        /*
-         * inputJson for word 'hello' translated to language Hindi from English-
-         * [[["नमस्ते","hello",,,1]],,"en"]
-         * We have to get 'नमस्ते ' from this json.
-         */
-
         JSONArray jsonArray = new JSONArray(inputJson);
         JSONArray jsonArray2 = (JSONArray) jsonArray.get(0);
         JSONArray jsonArray3 = (JSONArray) jsonArray2.get(0);

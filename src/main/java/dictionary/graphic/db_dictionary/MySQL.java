@@ -1,4 +1,4 @@
-package dictionary.graphic.database;
+package dictionary.graphic.db_dictionary;
 
 import java.sql.*;
 
