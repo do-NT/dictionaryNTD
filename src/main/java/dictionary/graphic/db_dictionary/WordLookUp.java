@@ -11,7 +11,6 @@ public class WordLookUp {
         StringBuilder result = new StringBuilder();
         if (conn != null) {
             // System.out.println("Connected");
-            // String sql = "SELECT * FROM entries WHERE word = \'" + word + "\'";
             String sql = "SELECT * FROM " + dict + " WHERE word = \'" + word_target + "\'";
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);

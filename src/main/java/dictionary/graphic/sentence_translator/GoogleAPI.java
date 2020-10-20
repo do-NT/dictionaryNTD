@@ -18,6 +18,17 @@ public class GoogleAPI {
         return word;
     }
 
+//    public String textMeaning(String text, String langFrom, String langTo) throws Exception {
+//        String[] data = text.split(".");
+//        StringBuilder para = new StringBuilder();
+//        for (String str : data) {
+//            String tmp = sentenceMeaning(str, langFrom, langTo);
+//            para.append(tmp);
+//        }
+//
+//        return para.toString();
+//    }
+
     private String callUrlAndParseResult(String langFrom, String langTo,
                                          String word) throws Exception
     {

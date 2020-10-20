@@ -32,13 +32,4 @@ public class JustTranslateAPI {
         String text = arr.getString(0);
         System.out.println(text);
     }
-
-    public static void main(String[] args) throws IOException, SQLException, UnirestException {
-        Scanner sc = new Scanner(System.in);
-//        System.out.print("Translate: ");
-        String line = sc.nextLine();
-        translateText(line);
-        // WordLookUp w = new WordLookUp();
-        // w.wordLookUp(line);
-    }
 }

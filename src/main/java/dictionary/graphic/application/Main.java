@@ -14,7 +14,6 @@ public class Main extends Application {
         primaryStage.setTitle("A Dictionary Application");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
-        // System.out.println(123);
     }
 
 
